@@ -423,4 +423,7 @@ export const Snake: React.FC<SnakeProps> = ({ onComplete }) => {
         </div>
       </div>
     </GameErrorBoundary>
-  ); 
+  );
+};
+
+export default Snake;

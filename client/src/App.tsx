@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Router, Route, Switch } from "wouter";
 import { ThemeProvider } from "next-themes";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
@@ -19,28 +19,28 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
-          <Routes>
+        <Router>
+          <Switch>
             {/* Public Routes */}
-            <Route path="/" element={<Index />} />
-            <Route path="/auth" element={<Auth />} />
+            <Route path="/" component={Index} />
+            <Route path="/auth" component={Auth} />
             
             {/* Protected Routes */}
-            <Route path="/dashboard" element={
+            <Route path="/dashboard">
               <ProtectedRoute>
                 <Dashboard />
               </ProtectedRoute>
-            } />
-            <Route path="/games" element={
+            </Route>
+            <Route path="/games">
               <ProtectedRoute>
                 <GamesPage />
               </ProtectedRoute>
-            } />
+            </Route>
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
+            <Route component={NotFound} />
+          </Switch>
+        </Router>
       </TooltipProvider>
     </ThemeProvider>
   </QueryClientProvider>

@@ -554,4 +554,7 @@ export const Breakout: React.FC<BreakoutProps> = ({ onComplete }) => {
         </div>
       </div>
     </GameErrorBoundary>
-  ); 
+  );
+};
+
+export default Breakout;

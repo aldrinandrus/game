@@ -419,4 +419,7 @@ export const FlappyBird: React.FC<FlappyBirdProps> = ({ onComplete }) => {
         </div>
       </div>
     </GameErrorBoundary>
-  ); 
+  );
+};
+
+export default FlappyBird;
